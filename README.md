@@ -1,6 +1,6 @@
 # vue-advanced
 
-## vue CLI 2.x vs 3.x
+### vue CLI 2.x vs 3.x
 
 ```shell
 * 명령어
