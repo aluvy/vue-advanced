@@ -40,10 +40,8 @@ Vue.use(VueRouter);
 export const router = new VueRouter({
   routes: [
     {
-      // path: url 주소에 대한 정보
-      path: '/news',
-      // component: url 주소로 접속했을 때 표시될 컴포넌트
-      component: NewsView,
+      path: '/news',  // path: url 주소에 대한 정보
+      component: NewsView,  // component: url 주소로 접속했을 때 표시될 컴포넌트
     },
   ],
 });
