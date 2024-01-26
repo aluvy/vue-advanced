@@ -1,6 +1,6 @@
 # vue-advanced
 
-vue CLI 2.x vs 3.x
+## vue CLI 2.x vs 3.x
 
 ```shell
 * 명령어
@@ -21,4 +21,40 @@ vue CLI 2.x vs 3.x
 * ES6 이해도
   - 2.x : 필요 X
   - 3.x : 필요 O
+```
+
+## router
+
+```shell
+$ npm i vue-router@3
+```
+
+src/router/index.js
+```javascript
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import NewsView from '../views/NewsView';
+
+Vue.use(VueRouter);
+
+export const router = new VueRouter({
+  routes: [
+    {
+      // path: url 주소에 대한 정보
+      path: '/news',
+      // component: url 주소로 접속했을 때 표시될 컴포넌트
+      component: NewsView,
+    },
+  ],
+});
+```
+
+src/main.js
+```javascript
+import { router } from './router/index.js';
+
+new Vue({
+  router,
+}).$mount('#app');
+
 ```
