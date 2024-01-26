@@ -10,9 +10,9 @@
 * 웹팩 설정 파일
   - 2.x : 노출 O
   - 3.x : 노출 X
-    - vue.config.js파일에 configureWebpack 항목을 통해 설정 할 수 있다.
-    - 자세한 사항은 vue cli 3 공식 사이트에서 확인한다.
-    - https://cli.vuejs.org/guide/webpack.html
+    . vue.config.js파일에 configureWebpack 항목을 통해 설정 할 수 있다.
+    . 자세한 사항은 vue cli 3 공식 사이트에서 확인한다.
+    . https://cli.vuejs.org/guide/webpack.html
 
 * 프로젝트 구성
   - 2.x : 깃허브의 템플릿 다운로드
