@@ -22,6 +22,8 @@ const fetchUserInfo = function (user) {
   return axios.get(`${config.baseUrl}user/${user}.json`);
 };
 
-// https://api.hnpwa.com/v0/user/guybedo.json
+const fetchItemView = function (id) {
+  return axios.get(`${config.baseUrl}item/${id}.json`);
+};
 
-export { fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo };
+export { fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo, fetchItemView };

@@ -3,7 +3,7 @@
     <ul class="item_list">
       <li v-for="(item, i) in ask" :key="i" :id="item.id">
         <strong>
-          <a :href="item.url">{{ item.title }}</a>
+          <router-link :to="`/item/${item.id}`">{{ item.title }}</router-link>
         </strong>
         <p>
           <span>{{ item.points }} points by {{ item.user }}</span>

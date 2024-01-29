@@ -1,4 +1,4 @@
-import { fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo } from '../api/index';
+import { fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo, fetchItemView } from '../api/index';
 
 export default {
   FETCH_NEWS(context) {
@@ -22,6 +22,14 @@ export default {
         data.about = data.about.replaceAll(/&#x2F;/g, '/').split('<')[0];
         // .split(/\s/);
         context.commit('SET_USER', data);
+      })
+      .catch((e) => console.log(e));
+  },
+  FETCH_ITEM(context, id) {
+    fetchItemView(id)
+      .then(({ data }) => {
+        // data.content = data.content.replaceAll(/&#x2F;/g, '/').replaceAll(/&#x27;/g, '...');
+        context.commit('SET_ITEM', data);
       })
       .catch((e) => console.log(e));
   },

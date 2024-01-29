@@ -16,7 +16,7 @@
       </li>
       <li>
         <span>about</span>
-        <p>{{ user.about }}</p>
+        <p v-html="user.about"></p>
       </li>
     </ul>
   </div>
