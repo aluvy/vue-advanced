@@ -23,36 +23,8 @@
   - 3.x : 필요 O
 ```
 
-## router
+## @vue/cli
 
 ```shell
-$ npm i vue-router@3
-```
-
-src/router/index.js
-```javascript
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import NewsView from '../views/NewsView';
-
-Vue.use(VueRouter);
-
-export const router = new VueRouter({
-  routes: [
-    {
-      path: '/news',  // path: url 주소에 대한 정보
-      component: NewsView,  // component: url 주소로 접속했을 때 표시될 컴포넌트
-    },
-  ],
-});
-```
-
-src/main.js
-```javascript
-import { router } from './router/index.js';
-
-new Vue({
-  router,
-}).$mount('#app');
-
+$ npm i -g @vue/cli
 ```
