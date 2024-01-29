@@ -18,4 +18,10 @@ const fetchAskList = function () {
   return axios.get(`${config.baseUrl}ask/1.json`);
 };
 
-export { fetchNewsList, fetchJobsList, fetchAskList };
+const fetchUserInfo = function (user) {
+  return axios.get(`${config.baseUrl}user/${user}.json`);
+};
+
+// https://api.hnpwa.com/v0/user/guybedo.json
+
+export { fetchNewsList, fetchJobsList, fetchAskList, fetchUserInfo };
