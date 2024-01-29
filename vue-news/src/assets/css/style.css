@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+.item_list li { padding: 1.2rem; }
+.item_list li + li { border-top: 1px solid #ddd; }
+.item_list li strong { font-weight: normal; }
+.item_list li strong a:hover { color:#42b883; }
+.item_list li p { color: #777; font-size: 1.2rem; }
+.item_list li p span + span::before { content: '|'; padding:0 0.6rem; opacity: .5; }
