@@ -16,9 +16,7 @@
       </li>
       <li>
         <span>about</span>
-        <p>
-          <span v-for="(a, i) in user.about" :key="i">{{ a }}</span>
-        </p>
+        <p>{{ user.about }}</p>
       </li>
     </ul>
   </div>

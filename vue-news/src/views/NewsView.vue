@@ -6,7 +6,7 @@
           <a :href="item.url" target="blank">{{ item.title }}</a>
         </strong>
         <p>
-          <span>{{ item.points }} points by {{ item.user }}</span>
+          <span>{{ item.points }} points by <router-link :to="`/user/${item.user}`">{{ item.user }}</router-link></span>
           <span>{{ item.time_ago }}</span>
           <span>{{ item.type }}</span>
           <span>{{ item.comments_count }} comments</span>

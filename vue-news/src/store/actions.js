@@ -19,10 +19,8 @@ export default {
   FETCH_USER(context, user) {
     fetchUserInfo(user)
       .then(({ data }) => {
-        data.about = data.about
-          .replaceAll(/&#x2F;/g, '/')
-          .split('<')[0]
-          .split(/\s/);
+        data.about = data.about.replaceAll(/&#x2F;/g, '/').split('<')[0];
+        // .split(/\s/);
         context.commit('SET_USER', data);
       })
       .catch((e) => console.log(e));
