@@ -1,39 +1,30 @@
 <template>
   <div>
-    <ul>
-      <li v-for="(item, i) in news" :key="i">
-        <p>id: {{ item.id }}</p>
-        <p>comments_count: {{ item.comments_count }}</p>
-        <p>domain: {{ item.domain }}</p>
-        <p>points: {{ item.points }}</p>
-        <p>time: {{ item.time }}</p>
-        <p>time_ago: {{ item.time_ago }}</p>
-        <p>title: {{ item.title }}</p>
-        <p>type: {{ item.type }}</p>
-        <p>url: {{ item.url }}</p>
-        <p>user: {{ item.user }}</p>
+    <ul class="item_list">
+      <li v-for="(item, i) in news" :key="i" :id="item.id">
+        <strong>
+          <a :href="item.url" target="blank">{{ item.title }}</a>
+        </strong>
+        <p>
+          <span>{{ item.points }} points by {{ item.user }}</span>
+          <span>{{ item.time_ago }}</span>
+          <span>{{ item.type }}</span>
+          <span>{{ item.comments_count }} comments</span>
+        </p>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import { fetchNewsList } from '../api/index';
+import { mapGetters } from 'vuex'
 
 export default {
-  data() {
-    return {
-      news: []
-    }
+  computed: {
+    ...mapGetters(['news'])
   },
   created() {
-    fetchNewsList()
-      .then( res => this.news = res.data )
-      .catch( e => console.log(e) );
-  }
+    this.$store.dispatch('FETCH_NEWS');
+  },
 }
 </script>
-
-<style>
-
-</style>
