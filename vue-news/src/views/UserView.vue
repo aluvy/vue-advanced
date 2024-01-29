@@ -1,13 +1,48 @@
 <template>
-  <div>userview</div>
+  <div class="user_box">
+    <div class="photo"></div>
+    <ul class="info">
+      <li>
+        <span>user</span>
+        <p>{{ user.id }}</p>
+      </li>
+      <li>
+        <span>created</span>
+        <p>{{ user.created }}</p>
+      </li>
+      <li>
+        <span>karma</span>
+        <p>{{ user.karma }}</p>
+      </li>
+      <li>
+        <span>about</span>
+        <p>
+          <span v-for="(a, i) in user.about" :key="i">{{ a }}</span>
+        </p>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-export default {
+import { mapGetters } from 'vuex';
 
+export default {
+  computed: {
+    ...mapGetters(['user']),
+  },
+  created() {
+    this.$store.dispatch('FETCH_USER', this.$route.params.id);
+  }
 }
 </script>
 
 <style>
-
+.user_box { display: flex; align-items: flex-start; padding: 2rem; }
+.user_box .photo { flex: 0 0 10rem; }
+.user_box .photo::before { content:''; display: block; width: 100%; padding-bottom: 100%; border-radius: 100%; background: #eee; box-shadow: inset 3px 3px 1rem rgba(0,0,0, 0.05) }
+.user_box .info { flex: 1 1 auto; margin-left: 2rem; }
+.user_box .info li { display: flex; align-items: flex-start; }
+.user_box .info li + li { margin-top: 0.4rem; }
+.user_box .info li span { flex: 0 0 10rem; }
 </style>
