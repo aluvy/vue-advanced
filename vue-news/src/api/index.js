@@ -10,12 +10,12 @@ const fetchNewsList = function () {
   return axios.get(`${config.baseUrl}news/1.json`);
 };
 
-const fetchAskList = function () {
-  return axios.get(`${config.baseUrl}ask/1.json`);
-};
-
 const fetchJobsList = function () {
   return axios.get(`${config.baseUrl}jobs/1.json`);
 };
 
-export { fetchNewsList, fetchAskList, fetchJobsList };
+const fetchAskList = function () {
+  return axios.get(`${config.baseUrl}ask/1.json`);
+};
+
+export { fetchNewsList, fetchJobsList, fetchAskList };
