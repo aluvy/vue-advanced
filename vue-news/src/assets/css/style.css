@@ -1,8 +1,21 @@
 @charset "utf-8";
 
-.item_list li { padding: 1.2rem; }
+.item_list li { display: flex; align-items: center; padding: 1.2rem; }
+.item_list li .points { flex: 0 0 8rem; text-align: center; color: #42b883; font-weight: 500; }
+.item_list li .points small { display: block; font-size: 1rem; }
+.item_list li .points:first-child { margin-left: -1.2rem; }
+.item_list li .ttl_wrap { flex: 1 1 auto; }
 .item_list li + li { border-top: 1px solid #ddd; }
-.item_list li strong { font-weight: normal; }
-.item_list li strong a:hover { color:#42b883; }
-.item_list li p { color: #777; font-size: 1.2rem; }
-.item_list li p span + span::before { content: '|'; padding:0 0.6rem; opacity: .5; }
+.item_list li .info_txt { margin-top: 0.5rem; }
+
+.ttl_wrap strong { font-weight: 500; }
+.ttl_wrap strong i { font-size: 60%; color: #999; }
+
+.info_txt { color: #999; font-size: 1.2rem; }
+.info_txt span + span::before { content: '|'; padding: 0 0.6rem; opacity: .5; }
+.info_txt span i { font-size: 0.8rem; }
+.info_txt .domain { color: #42b883; font-weight: 500; }
+
+.cont_txt { font-size: 1.4rem; word-break: break-all; }
+.cont_txt p + p { margin-top: 1rem; }
+.cont_txt code { white-space: normal; }
