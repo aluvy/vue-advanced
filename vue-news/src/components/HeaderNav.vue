@@ -12,7 +12,8 @@
 </template>
 
 <style scoped>
-header { display: flex; align-items: center; padding: 1rem 2rem; background: #42b883; }
+header { display: flex; align-items: center; padding: 1.6rem 2rem; background: #42b883; }
+header a:hover { color: inherit; }
 h1 { font-size: 1.6rem; color: #fff; font-weight: 700; }
 ul { display: flex; align-items: center; margin-left: 2.2rem; }
 li + li { margin-left: 2rem; }
