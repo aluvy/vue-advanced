@@ -1,30 +1,13 @@
 <template>
-  <div>
-    <ul class="item_list">
-      <li v-for="(item, i) in news" :key="i" :id="item.id">
-        <strong>
-          <a :href="item.url" target="blank">{{ item.title }}</a>
-        </strong>
-        <p>
-          <span>{{ item.points }} points by <router-link :to="`/user/${item.user}`">{{ item.user }}</router-link></span>
-          <span>{{ item.time_ago }}</span>
-          <span>{{ item.type }}</span>
-          <span>{{ item.comments_count }} comments</span>
-        </p>
-      </li>
-    </ul>
-  </div>
+  <ListItem></ListItem>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import ListItem from '../components/ListItem.vue'
 
 export default {
-  computed: {
-    ...mapGetters(['news'])
-  },
-  created() {
-    this.$store.dispatch('FETCH_NEWS');
+  components: {
+    ListItem,
   },
 }
 </script>
