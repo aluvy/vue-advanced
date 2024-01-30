@@ -4,50 +4,37 @@
     <section class="item_wrap">
       <div class="ttl_wrap">
         <strong>{{ item.title }}</strong>
-        <div class="info_txt">
-          <span>{{ item.points }} points by <router-link :to="`/user/${item.user}`"><i class="fa-solid fa-user"></i> {{ item.user }}</router-link></span>
+        <p class="info_txt">
+          <span>{{ item.points }} points</span>
+          <span><router-link :to="`/user/${item.user}`"><i class="fa-solid fa-user"></i> {{ item.user }}</router-link></span>
           <span>{{ item.time_ago }}</span>
           <span>{{ item.comments_count }} comments</span>
-        </div>
+        </p>
       </div>
-      <div class="content_txt" v-html="item.content"></div>
+      <div class="cont_txt" v-html="item.content"></div>
     </section>
 
-    <section class="form_wrap">
+    <section class="item_form">
       <textarea></textarea>
       <button>add comment</button>
     </section>
 
-    <section class="comment_wrap">
-      <div v-for="(a, i) in item.comments" :key="i" :class="`comment_box level${a.level}`">
-        
-        <div class="comment">
-          <div class="info_txt">
-            <span><i class="fa-solid fa-user"></i> {{ a.user }}</span>
-            <span>{{ a.time_ago }}</span>
-            <span>next</span>
-          </div>
-          <div class="content_txt" v-html="a.content"></div>
-        </div>
-
-        <!-- <div class="comment_box" :class="`level${b.level}`" v-if="a.comments_count" v-for="(b, j) in a.comments" :key="j">
-          <div>
-            <span><i class="fa-solid fa-user"></i> {{ a.user }}</span>
-            <span>{{ a.time_ago }}</span>
-            <span>next</span>
-          </div>
-          <div v-html="a.content"></div>
-        </div> -->
-      </div>
+    <section class="item_content">
+      <CommentContent :propsData="item.comments"></CommentContent>
     </section>
 
   </div>
 </template>
 
 <script>
+import CommentContent from '../components/CommentContent.vue'
 import { mapGetters } from 'vuex';
 
 export default {
+  name: 'ItemView',
+  components: {
+    CommentContent,
+  },
   computed: {
     ...mapGetters(['item']),
   },
@@ -57,20 +44,14 @@ export default {
 }
 </script>
 
-<style>
-.info_txt { color: #777; font-size: 1.2rem; }
-.info_txt span + span::before { content: '|'; padding: 0 0.6rem; opacity: .5; }
-.content_txt { font-size: 1.4rem; }
-.content_txt p + p { margin-top: 1rem; }
-
+<style scoped>
 .item_wrap .ttl_wrap { padding: 2rem; }
-.item_wrap .ttl_wrap strong { display: block; font-weight: 400; font-size: 1.8rem; }
+.item_wrap .ttl_wrap strong { display: block; font-weight: 500; font-size: 1.8rem; }
 .item_wrap .ttl_wrap strong + .info_txt { margin-top: 1rem; }
-.item_wrap .content_txt { border-top: 1px solid #eee; padding: 2rem; }
-
-.comment_wrap .comment_box { padding: 2rem; }
-.comment_wrap .level0 + .level0 { border-top: 1px solid #eee; }
-.comment_wrap .comment .content_txt { padding-top: 1rem; }
-
-/* .comment_box.level1 { margin-left: 2rem; } */
+.item_wrap .cont_txt { border-top: 1px solid #eee; padding: 2rem; }
+.item_form { padding: 3rem 2rem; }
+.item_form textarea { width: 100%; height: 8rem; box-sizing: border-box; resize: none; border: 1px solid #dedede; padding: 0.8rem 1rem; background: #f7f7f7; box-shadow: inset 2px 2px 5px rgba(0,0,0, 0.05); outline: none; transition: all .3s; }
+.item_form textarea:focus { border-color: #444; }
+.item_form button { background: #42b883; color: #fff; padding: 1rem 2rem; }
+.item_content { padding: 1rem 0; }
 </style>
