@@ -1,6 +1,6 @@
 <template>
   <ul class="item_list">
-    <li v-for="(item, i) in data" :key="i" :id="item.id">
+    <li v-for="(item, i) in list" :key="i" :id="item.id">
 
       <template v-if="item.points">
         <div class="points">
@@ -34,16 +34,19 @@
 </template>
 
 <script>
+// import { mapGetters } from 'vuex';
+
 export default {
-  computed: {
-    data(){
-      const name = this.$route.name
-      return this.$store.getters[name];
+  data(){
+    return {
+      list: [],
     }
   },
   created() {
-    const name = (this.$route.name).toUpperCase();
-    this.$store.dispatch(`FETCH_${name}`);
-  }
+    this.list = this.$store.state.list;
+  },
+  // computed: {
+  //   ...mapGetters(['list']),
+  // },
 }
 </script>
