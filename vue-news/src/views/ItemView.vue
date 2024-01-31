@@ -28,19 +28,28 @@
 
 <script>
 import CommentContent from '../components/CommentContent.vue'
-import { mapGetters } from 'vuex';
+import CommonMixin from '../mixins/CommonMixin';
+// import { mapGetters } from 'vuex';
 
 export default {
   name: 'ItemView',
+  data() {
+    return {
+      item: {},
+    }
+  },
   components: {
     CommentContent,
   },
-  computed: {
-    ...mapGetters(['item']),
-  },
+  // computed: {
+  //   ...mapGetters(['item']),
+  // },
   created() {
-    this.$store.dispatch('FETCH_ITEM', this.$route.params.id);
-  }
+    // console.log('itemView', this.$route.params.id);
+    // this.$store.dispatch('FETCH_ITEM', this.$route.params.id);
+    this.item = this.$store.getters.item;
+  },
+  mixins: [CommonMixin],
 }
 </script>
 
