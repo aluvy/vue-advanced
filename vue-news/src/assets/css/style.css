@@ -16,7 +16,7 @@
 .info_txt span i { font-size: 0.8rem; }
 .info_txt .domain { color: #42b883; font-weight: 500; }
 
-.cont_txt { font-size: 1.4rem; word-break: break-all; }
+.cont_txt { font-size: 1.4rem; line-height: 1.6; word-break: break-all; }
 .cont_txt p + p { margin-top: 1rem; }
 .cont_txt code { white-space: normal; }
 
