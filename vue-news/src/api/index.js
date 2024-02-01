@@ -18,16 +18,31 @@ const config = {
 //   return axios.get(`${config.baseUrl}ask/1.json`);
 // };
 
-const fetchList = function (pageName) {
-  return axios.get(`${config.baseUrl}${pageName}/1.json`);
+const fetchList = async function (pageName) {
+  try {
+    const res = await axios.get(`${config.baseUrl}${pageName}/1.json`);
+    return res;
+  } catch (e) {
+    console.log(e);
+  }
 };
 
-const fetchUserInfo = function (user) {
-  return axios.get(`${config.baseUrl}user/${user}.json`);
+const fetchUserInfo = async function (user) {
+  try {
+    const res = await axios.get(`${config.baseUrl}user/${user}.json`);
+    return res;
+  } catch (e) {
+    console.log(e);
+  }
 };
 
-const fetchItemView = function (id) {
-  return axios.get(`${config.baseUrl}item/${id}.json`);
+const fetchItemView = async function (id) {
+  try {
+    const res = await axios.get(`${config.baseUrl}item/${id}.json`);
+    return res;
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 export { fetchList, fetchUserInfo, fetchItemView };
