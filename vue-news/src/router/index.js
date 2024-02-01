@@ -57,16 +57,15 @@ export const router = new VueRouter({
   ],
 });
 
-const setBeforeEnter = (to, from, next, dispatchName) => {
-  let param = to.name;
-  if (dispatchName === 'FETCH_ITEM' || dispatchName === 'FETCH_USER') param = to.params.id;
+const setBeforeEnter = async (to, from, next, dispatchName) => {
+  try {
+    let param = to.name;
+    if (dispatchName === 'FETCH_ITEM' || dispatchName === 'FETCH_USER') param = to.params.id;
 
-  EventBus.$emit('start:spinner');
-  store
-    .dispatch(dispatchName, param)
-    .then(() => {
-      // EventBus.$emit('end:spinner'); // mixin mounted()로 이동
-      next(); // next() 함수를 호출해야 페이지가 이동 된다.
-    })
-    .catch((e) => console.log(e));
+    EventBus.$emit('start:spinner');
+    await store.dispatch(dispatchName, param);
+    next();
+  } catch (e) {
+    console.log(e);
+  }
 };
