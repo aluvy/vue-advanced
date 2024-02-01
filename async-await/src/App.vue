@@ -18,6 +18,7 @@
 
 <script>
 import axios from 'axios'
+import { handleException } from './utils/handler.js'
 
 export default {
   name: 'App',
@@ -30,12 +31,10 @@ export default {
     loginUser() {
       axios.get('https://jsonplaceholder.typicode.com/users/1')
         .then( res => {
-          console.log(res);
           if(res.data.id === 1){
             console.log('사용자가 인증되었습니다.');
             axios.get('https://jsonplaceholder.typicode.com/todos')
               .then( res => {
-                console.log(res);
                 this.items = res.data;
               })
               .catch( e => console.log(e) )
@@ -46,16 +45,14 @@ export default {
     async loginUser1() {
       try {
         let res = await axios.get('https://jsonplaceholder.typicode.com/users/1');
-        console.log(res);
 
         if( res.data.id === 1 ){
           console.log('사용자가 인증되었습니다.');
           let list = await axios.get('https://jsonplaceholder.typicode.com/todos');
-          console.log(list);
           this.item = list.data;
         }
       } catch (error) {
-        console.log(error);
+        handleException(error); // 공통 에러 처리 함수
       }
     }
   }
