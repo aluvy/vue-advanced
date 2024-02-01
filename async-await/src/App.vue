@@ -44,16 +44,19 @@ export default {
         .catch( e => console.log(e) );
     },
     async loginUser1() {
-      let res = await axios.get('https://jsonplaceholder.typicode.com/users/1');
-      console.log(res);
+      try {
+        let res = await axios.get('https://jsonplaceholder.typicode.com/users/1');
+        console.log(res);
 
-      if( res.data.id === 1 ){
-        console.log('사용자가 인증되었습니다.');
-        let list = await axios.get('https://jsonplaceholder.typicode.com/todos');
-        console.log(list);
-        this.item = list.data;
+        if( res.data.id === 1 ){
+          console.log('사용자가 인증되었습니다.');
+          let list = await axios.get('https://jsonplaceholder.typicode.com/todos');
+          console.log(list);
+          this.item = list.data;
+        }
+      } catch (error) {
+        console.log(error);
       }
-
     }
   }
 }
