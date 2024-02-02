@@ -28,9 +28,12 @@
 ```shell
 $ npm i -g @vue/cli
 ```
- 
----
- 
+
+<br>
+   
+----
+<br>
+
 ### vue-news
 https://aluvy.github.io/vue-advanced/vue-news/dist
 
