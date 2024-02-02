@@ -28,3 +28,16 @@
 ```shell
 $ npm i -g @vue/cli
 ```
+ 
+---
+ 
+### vue-news
+https://aluvy.github.io/vue-advanced/vue-news/dist
+
+### async-await
+https://aluvy.github.io/vue-advanced/async-await/dist
+
+### vue-charts
+custom plugin   
+https://aluvy.github.io/vue-charts/async-await/dist
+
