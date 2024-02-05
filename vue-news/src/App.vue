@@ -34,6 +34,8 @@ export default {
   created() {
     EventBus.$on('start:spinner', this.startSpinner);
     EventBus.$on('end:spinner', this.endSpinner);
+
+    console.log(process.env);
   },
   beforeDestroy() {
     EventBus.$off('start:spinner', this.startSpinner);
