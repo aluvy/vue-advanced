@@ -44,3 +44,18 @@ https://aluvy.github.io/vue-advanced/async-await/dist
 custom plugin   
 https://aluvy.github.io/vue-advanced/vue-charts/dist
 
+### design pattern
+#### common
+https://aluvy.github.io/vue-advanced/design/common/dist
+
+#### slots
+https://aluvy.github.io/vue-advanced/design/slots/dist
+
+#### controlled
+https://aluvy.github.io/vue-advanced/design/controlled/dist
+
+#### renderless
+https://aluvy.github.io/vue-advanced/design/renderless/dist
+
+render.html
+https://aluvy.github.io/vue-advanced/design/render.html
