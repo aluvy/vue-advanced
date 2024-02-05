@@ -6,43 +6,40 @@
 
 <script>
 export default {
-  mounted() {
-    const ctx = this.$refs.BarChart;
+  props: {
+    propsData: Array,
+  },
+  methods: {
+    refreshChart() {
+      this.$emit('refreshChart');
+    },
+    setBarChart() {
+      const ctx = this.$refs.BarChart;
 
-    new this.$_Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            this.$_ChartUtils.BGCOLOR.red,
-            this.$_ChartUtils.BGCOLOR.blue,
-            this.$_ChartUtils.BGCOLOR.yellow,
-            this.$_ChartUtils.BGCOLOR.green,
-            this.$_ChartUtils.BGCOLOR.purple,
-            this.$_ChartUtils.BGCOLOR.orange
-          ],
-          borderColor: [
-          this.$_ChartUtils.COLOR.red,
-            this.$_ChartUtils.COLOR.blue,
-            this.$_ChartUtils.COLOR.yellow,
-            this.$_ChartUtils.COLOR.green,
-            this.$_ChartUtils.COLOR.purple,
-            this.$_ChartUtils.COLOR.orange
-          ],
-          borderWidth: 1,
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
+      new this.$_Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+          datasets: this.propsData,
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          },
+          onClick: (e) => {
+            e.chart.data.datasets[0].data = [3, 7, 19, 14, 6, 11];
+            e.chart.update();
           }
         }
-      }
-    });
+      });
+    }
+  },
+  mounted() {
+    console.log('mounted');
+    this.setBarChart();
+    
   }
 }
 </script>
