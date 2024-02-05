@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Render Function</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 인스턴스 영역 -->
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        msg: 'Hello Vue'
+      },
+      // template: '<p>{{ msg }}</p>',
+      render: function(createElement) {
+        // return createElement('태그 이름', '태그 속성', '하위 태그 내용');
+        return createElement('p', this.msg);
+      }
+    })
+  </script>
+</body>
+</html>
