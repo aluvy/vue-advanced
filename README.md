@@ -42,5 +42,5 @@ https://aluvy.github.io/vue-advanced/async-await/dist
 
 ### vue-charts
 custom plugin   
-https://aluvy.github.io/vue-charts/async-await/dist
+https://aluvy.github.io/vue-advanced/vue-charts/dist
 
