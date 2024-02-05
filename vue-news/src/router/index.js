@@ -15,6 +15,7 @@ Vue.use(VueRouter);
 
 export const router = new VueRouter({
   mode: 'history',
+  base: '/vue-advanced/vue-news/dist',
   routes: [
     {
       path: '/',
